@@ -46,34 +46,42 @@ public class VolcanoAnalyzerTests {
         //Teardown
     }
 
-    // @Test
-    // public void eruptedInEighties() {
-    //     //Setup
-    //     Integer expected = 40;
+    @Test
+    public void eruptedInEighties() {
+        //Setup
+        Integer expected = 40;
 
-    //     //Execute
-    //     Integer actual = va.eruptedInEighties().size();
+        //Execute
+        Integer actual = va.eruptedInEighties().size();
 
-    //     //Assert
-    //     assertEquals(expected, actual, "should have 40 volcanoes");
+        //Assert
+        assertEquals(expected, actual, "should have 40 volcanoes");
 
-    //     //Teardown
-    // }
+        //Teardown
+    }
 
-    // @Test
-    // public void highVEI() {
-    //     //Setup
-    //     String[] expected = { "Macauley Island", "Kikai", "Masaya", "Pago", "Taal", "Pinatubo", "Long Island", "Black Peak", "St. Helens", "Veniaminof", "Aniakchak", "Santorini", "Taupo", "Pago", "Pinatubo", "Raoul Island", "Okmok", "Apoyeque", "Ambrym", "Bona-Churchill", "Taupo", "Ksudach", "Ilopango", "Rabaul", "Pago", "Bona-Churchill", "Dakataua", "Ceboruco", "Changbaishan", "Quilotoa", "Kuwae", "Bardarbunga", "Huaynaputina", "Long Island", "Tambora", "Krakatau", "Santa Maria", "Novarupta", "Pinatubo" };
 
-    //     //Execute
-    //     String[] actual = va.highVEI();
+    // Return an array of the names of volcanoes that had an eruption with a Volcanic Explosivity Index (VEI) of 6 or higher.
+    
 
-    //     //Assert
-    //     assertEquals( expected.length, actual.length, "should have 39 volcanoes");
-    //     assertArrayEquals(expected, actual, "should have the correct volcanoes");
 
-    //     //Teardown
-    // }
+    @Test
+    public void highVEI() {
+        //Setup
+        String[] expected = { "Macauley Island", "Kikai", "Masaya", "Pago", "Taal", "Pinatubo", "Long Island", "Black Peak", "St. Helens", "Veniaminof", "Aniakchak", "Santorini", "Taupo", "Pago", "Pinatubo", "Raoul Island", "Okmok", "Apoyeque", "Ambrym", "Bona-Churchill", "Taupo", "Ksudach", "Ilopango", "Rabaul", "Pago", "Bona-Churchill", "Dakataua", "Ceboruco", "Changbaishan", "Quilotoa", "Kuwae", "Bardarbunga", "Huaynaputina", "Long Island", "Tambora", "Krakatau", "Santa Maria", "Novarupta", "Pinatubo" };
+
+        //Execute
+        String[] actual = va.highVEI();
+
+        //Assert
+        assertEquals( expected.length, actual.length, "should have 39 volcanoes");
+        assertArrayEquals(expected, actual, "should have the correct volcanoes");
+
+        //Teardown
+    }
+
+    // Return the eruption with the highest number of recorded deaths.
+
 
     // @Test
     // public void mostDeadly() {
@@ -113,19 +121,19 @@ public class VolcanoAnalyzerTests {
     //     //Teardown
     // }
 
-    // @Test
-    // public void causedTsunami() {
-    //     //Setup
-    //     double expected = 17;
+    @Test
+    public void causedTsunami() {
+        //Setup
+        double expected = 17;
 
-    //     //Execute
-    //     double actual = va.causedTsunami();
+        //Execute
+        double actual = va.causedTsunami();
 
-    //     //Assert
-    //     assertEquals( expected, actual, .1, "should be about 17.0 percent");
+        //Assert
+        assertEquals( expected, actual, .1, "should be about 17.0 percent");
 
-    //     //Teardown
-    // }
+        //Teardown
+    }
 
     // @Test
     // public void mostCommonType() {
