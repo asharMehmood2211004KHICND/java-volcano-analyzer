@@ -3,6 +3,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -60,20 +61,6 @@ public class VolcanoAnalyzer {
 
 
 
-
-
-    //  public List<Volcano> mostDeadly(){
-
-    //     // Integer myMax = volcanos.stream().max((x,y) -> x.getDEATHS().compareTo(y.getDEATHS()));
-
-    //     // Integer yourMax = volcanos.stream().max(Comparator.comparing(Volcano::getDEATHS))
-
-    //     myMax = volcanos.stream().max(volcanos:: getDEATHS);
-
-    //   return  volcanos.stream().filter(vol->vol.getDEATHS() == myMax  ).collect(Collectors.toList()); 
-        
-    //  }
-
     // public List<Volcano> mostDeadly(){
 
     //         List<Volcano> myVolcanos = volcanos.stream()
@@ -95,6 +82,13 @@ public class VolcanoAnalyzer {
                                                                                                                             
     // long l=500;  
     // int i=(int)l;  
+
+
+    public Volcano mostDeadly(){
+        return volcanos.stream().max(Comparator.comparing(i->Integer.parseInt(i.getDEATHS().isEmpty()?"0":i.getDEATHS()))).get();
+    }
+
+
 
 
     // Return the percentage of eruptions that caused tsunamis. , passed.
@@ -137,7 +131,20 @@ public class VolcanoAnalyzer {
     //     volsGrouped.stream()        
         
     // }
+    
 
+
+    public String mostCommonType(){
+
+        List<String> volTypes =  volcanos.stream().map(i->i.getType()).distinct().collect(Collectors.toList());
+        List<Integer> count = new ArrayList<>();
+        volTypes.forEach(i->count.add(volcanos.stream().filter(j->j.getType().equals(i)).collect(Collectors.toList()).size())); 
+       
+         Integer maxValue = Collections.max(count);
+         return volTypes.get(count.indexOf(maxValue));
+  
+ 
+     }
 
 
     // Return the number of eruptions when supplied a country as an argument.
@@ -164,22 +171,12 @@ public class VolcanoAnalyzer {
    
     }
 
-    // Return an array of types of volcanoes.
+    // most common
 
 
    
-//   personList, HashingStrategies.fromIntFunction(Person::getAge));
 
-    // public String[] volcanoTypes(){
-
-    //    List<Volcano> volTypes =  volcanos.stream().
-
-        // volcanos.stream().distinct(p->p.getName()).collect(Collectors.toList());
-
-    //    return  volTypes.toArray(new String[0]);
-
-    // }
-
+    
 
     //  Return the percentage of eruptions that occurred in the Northern Hemisphere.
 
