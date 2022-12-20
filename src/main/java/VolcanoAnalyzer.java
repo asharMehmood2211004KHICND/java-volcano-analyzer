@@ -168,16 +168,15 @@ public class VolcanoAnalyzer {
 
 
    
-    //List<Person> personListFiltered = ListIterate.distinct(
 //   personList, HashingStrategies.fromIntFunction(Person::getAge));
 
     // public String[] volcanoTypes(){
 
-    //    List<String> volTypes =  volcanos.stream().distinct(p -> p.getName()).collect(Collectors.toList());
+    //    List<Volcano> volTypes =  volcanos.stream().
 
-    //     // volcanos.stream().distinct(p->p.getName()).collect(Collectors.toList());
+        // volcanos.stream().distinct(p->p.getName()).collect(Collectors.toList());
 
-    // //    return  volTypes.toArray(new String[0]);
+    //    return  volTypes.toArray(new String[0]);
 
     // }
 
@@ -185,9 +184,29 @@ public class VolcanoAnalyzer {
     //  Return the percentage of eruptions that occurred in the Northern Hemisphere.
 
 
-    // public double percentNorth(){
+    public double percentNorth(){
+        
+       double north =  volcanos.stream().filter(i->i.getLatitude() >= 0 && i.getLatitude() < 90 ).collect(Collectors.toList()).size();
+       double total = volcanos.size();
+       double locPer =  (north/total)*100;
+        return locPer;
 
-    // }
+    }
+
+    // Return the names of eruptions that occurred after 1800, that did NOT cause a tsunami, happened in the Southern Hemisphere, and had a VEI of 5.
+
+
+     public String[] manyFilters(){
+
+        List<String> manyFilterVol =  volcanos.stream().filter(i->i.getYear()>1800 && i.getTsu().equals("") && i.getLatitude() >= -90 && i.getLatitude() <= 0 && i.getVEI()==5).map(j->j.getName()).collect(Collectors.toList()); 
+        return  manyFilterVol.toArray(new String[0]);
+
+        
+     }
+
+
+
+
     
     // Return the names of eruptions that occurred at or above an elevation passed in as an argument.
 
